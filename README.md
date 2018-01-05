@@ -1,5 +1,5 @@
 run "npm install"
-
+run "npm start"
 
 
 # MEANTraining
@@ -59,3 +59,6 @@ Structural: Changes the structure of the DOM and hence changes the behaviour of 
 - ngAfterViewInit
 - ngAfterViewChecked
 - ngOnDestroy
+
+O
+
