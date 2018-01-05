@@ -1,3 +1,7 @@
+run "npm install"
+
+
+
 # MEANTraining
 
 Dependencies
@@ -42,3 +46,16 @@ There are 3 types of directives(@annotations in java):
 Component: It has its own template, styles, business-logic
 Attribute:  It doesn't change the DOM layout but changes the behaviour of the application. eg-> ng-class and ng-style
 Structural: Changes the structure of the DOM and hence changes the behaviour of the application. eg-> mg-if, ng-for and ng-switch
+
+
+
+//Component life cycle
+
+- ngOnChanges : If a value is changed
+- ngOnInit : when a compnent get intitilised on the page
+- ngDoCheck : whenever there is a change with a variable
+- ngAfterContentInit
+- ngAfterContentChecked
+- ngAfterViewInit
+- ngAfterViewChecked
+- ngOnDestroy
