@@ -1,0 +1,81 @@
+$basecolor : aqua;
+
+@import 'button';
+
+body{
+    background-color : $basecolor;
+}
+
+@mixin linear-gradient(){
+    background-image: -webkit-linear-gradient(top, yellow, black);//chome
+    background-image: -moz-linear-gradient(top, yellow, black);//mozila
+    background-image: -ms-linear-gradient(top, yellow, black);//MS
+    background-image: -o-linear-gradient(top, yellow, black);//opera    
+    background-image: -webkit-linear-gradient(top, yellow, black);//all others
+}
+
+#container{
+    @include linear-gradient();
+}
+
+@mixin linear-gradient($side, $color1, $color2){
+    background-image: -webkit-linear-gradient($side, $color1, $color2);//chome
+    background-image: -moz-linear-gradient($side, $color1, $color2);//mozila
+    background-image: -ms-linear-gradient($side, $color1, $color2);//MS
+    background-image: -o-linear-gradient($side, $color1, $color2);//opera    
+    background-image: -webkit-linear-gradient($side, $color1, $color2);//all others
+}
+
+#container{
+    @include linear-gradient(top, yellow, black);
+}
+
+#container{ 
+    @include linear-gradient(left, red, orange);
+}
+
+.msg{
+    font-size: 14pt;
+}
+
+.success{
+    color: green;
+    @extend .msg;
+}
+
+.warning{
+    color: yellow;
+    @extend .msg;
+}
+
+.error{
+    color: red;
+    @extend .msg;
+}
+
+
+@function fludize($context, $target){
+    @return $context / $target *100;
+}
+
+div{
+    width: fludize(333, 1000);
+}
+
+$theme: 'dark';
+
+body{
+    @if $theme == 'dark'{
+        background-color: darkgrey;
+    }@else{
+        background-color: lightgrey;
+    }
+}
+
+body{
+    @if $theme == 'dark'{
+        background-color: darken($color: grey, $amount: 30%);
+    }@else{
+        background-color: lighten($color: grey, $amount: 30%);
+    }
+}

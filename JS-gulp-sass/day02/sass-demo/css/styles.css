@@ -1,0 +1,47 @@
+.btn-alert {
+  background-color: green; }
+
+body {
+  background-color: aqua; }
+
+#container {
+  background-image: -webkit-linear-gradient(top, yellow, black);
+  background-image: -moz-linear-gradient(top, yellow, black);
+  background-image: -ms-linear-gradient(top, yellow, black);
+  background-image: -o-linear-gradient(top, yellow, black);
+  background-image: -webkit-linear-gradient(top, yellow, black); }
+
+#container {
+  background-image: -webkit-linear-gradient(top, yellow, black);
+  background-image: -moz-linear-gradient(top, yellow, black);
+  background-image: -ms-linear-gradient(top, yellow, black);
+  background-image: -o-linear-gradient(top, yellow, black);
+  background-image: -webkit-linear-gradient(top, yellow, black); }
+
+#container {
+  background-image: -webkit-linear-gradient(left, red, orange);
+  background-image: -moz-linear-gradient(left, red, orange);
+  background-image: -ms-linear-gradient(left, red, orange);
+  background-image: -o-linear-gradient(left, red, orange);
+  background-image: -webkit-linear-gradient(left, red, orange); }
+
+.msg, .success, .warning, .error {
+  font-size: 14pt; }
+
+.success {
+  color: green; }
+
+.warning {
+  color: yellow; }
+
+.error {
+  color: red; }
+
+div {
+  width: 33.3; }
+
+body {
+  background-color: darkgrey; }
+
+body {
+  background-color: #343434; }

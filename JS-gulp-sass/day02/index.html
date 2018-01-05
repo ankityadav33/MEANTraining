@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+    <script type="text/javascript" src="./bundle.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            /*Find & Change*/
+             $("h1").text("JQuery is Awesome");
+             /*Traversing*/
+            /* $('#destination').find("li").first().next().next().prev().text("India"); */
+            /*Listen*/
+            /* $("button").click(function(){
+
+            }); */
+/*             $("button").on('click',function(event){
+                event.preventDefault();
+                //alert("Price sarting from $500");
+                var price=$(this).closest('.vacation').data('price');
+                var div=$("<p>Price starting with $"+price+"</p>");
+                $(this).closest(".vacation").append(div);
+            }); */
+            $(".getDetail").on('click', function(event){
+                event.preventDefault();
+                var that=this;
+                $.ajax({
+                    method:'GET',
+                    url:'ticket.html',
+                    success : function(response){
+                        $(that).closest(".vacation").append(response);
+                    },
+                    error:function(err){
+                        console.log(err);
+                    }
+                 });
+            });
+    });
+        </script>
+</head>
+<body>
+    <h1>Loading Modules....</h1>
+    <button>Get Price</button>
+    <ul id="desination">            
+        <li class="vacation" data-price="99">Paris
+            <button>Get Price</button>
+            <button class="getDetail">Get Flight Deails</button>
+        </li>
+        <li class="vacation" data-price="199">France<button>Get Price</button></li>
+        <li class="vacation" data-price="299">Australia<button>Get Price</button></li>
+        <li class="vacation" data-price="399">England<button>Get Price</button></li>
+    </ul>
+</body>
+</html>
