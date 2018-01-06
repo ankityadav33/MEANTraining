@@ -4,8 +4,8 @@ run "npm start"
 
 # MEANTraining
 
-Dependencies
-============
+## Dependencies
+
 systemjs: Loads the modules
 core-js: "^2.4.1",
 rxjs": To achieve the observable data
@@ -17,11 +17,9 @@ concurrently: executes two commands in parallel
 
 devDependencies get removed when we deploy the code
 
+## Angular architecture
 
-/**********************************************/
-Angular architecture
-/**********************************************/
-Root Module
+**Root Module**
 A root module or any of the modules can have the following:
 Component
 Directives
@@ -49,7 +47,7 @@ Structural: Changes the structure of the DOM and hence changes the behaviour of 
 
 
 
-//Component life cycle
+## Component life cycle
 
 - ngOnChanges : If a value is changed
 - ngOnInit : when a compnent get intitilised on the page
@@ -60,5 +58,24 @@ Structural: Changes the structure of the DOM and hence changes the behaviour of 
 - ngAfterViewChecked
 - ngOnDestroy
 
-O
 
+
+#Creating a Single page application
+We need to use router module for this.
+For single page applications before HTML5 we had a URL like: https://www.example.com/index.html`#first`
+For single page applications for HTML5 we have a URL like: https://www.example.com/index.html`/first`
+
+### Steps for Routing
+1. checkin the base href in the index file
+2. create the route configuration
+3. provide the space to load the component
+4. include the configuration in Router module using forRoot()
+5. provide the links for navigation using routerLinks
+
+
+//For normal scenario
+/* @Component({
+  selector: 'my-app',
+  template: `<h1></h1><user-comp>User Component content here....</user-comp>`,
+})
+export class AppComponent  { name = 'Angular'; } */
