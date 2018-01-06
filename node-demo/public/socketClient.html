@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Chat App</title>
+	<script type="text/javascript" 
+		src="socket.io/socket.io.js">
+	</script>
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+	<h1 class="text-center">Chat Application</h1>
+	<form class="form-horizontal">
+		<div class="form-group">
+			<textarea rows="12" 
+				id="taMsg" 
+				class="form-control"
+				readonly="true">
+			</textarea>
+		</div>
+		<div class="form-group">
+			<input type="text" id="txtMsg"
+				class="form-control">
+			<button class="btn btn-warning btn-lg">Send</button>
+		</div>
+	</form>
+</div>
+
+<script type="text/javascript">
+	var chattername = prompt("Enter name ...");
+	var socket = io.connect("http://localhost:9090");
+	socket.on("acknowledge", function(msg){
+		alert("Server says - "+msg);
+	});
+	socket.emit("thanks","Thanks for connecting me!");
+	$(document).ready(function(){
+		$("button").click(function(event){
+			event.preventDefault();
+			var msg = $("#txtMsg").val();
+			socket.emit("MsgToServer",chattername, msg);
+			$("#txtMsg").val('');
+		});		
+	});
+	socket.on("MsgToClient", function(chattername, msg){
+		$("#taMsg").append(chattername+":"+msg + '\n');
+	})
+	
+</script>
+
+</body>
+</html>

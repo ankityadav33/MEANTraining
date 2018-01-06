@@ -1,0 +1,32 @@
+<div class="container">
+    <h1>My First Angular App</h1>
+
+    <ul class="list-unstyled" *ngFor="let user of users">
+
+        <li class="well">
+            <div class="mycontainer">
+                <div class="container">
+                    <img [src]="user.image" style="width: 150px; height:200px">
+                    <button (click)="moreInfo(user)" class="btn btn-info btn-sm">More Info</button>
+                </div>
+                <div class="container">
+                    <em class="pull-right">
+                        <p>Total Votes :
+                            <!--        <input type="number" [value]="user.vote (change)="user.vote=$event.target.value">-->
+                            <input type="number" [(ngModel)]="user.vote"> {{user.vote}}
+                        </p>
+                    </em>
+
+                    <h1>{{user.firstname}} {{user.lastname}}</h1>
+                    <p>Date of Birth: {{user.dob | date:'MM-dd-yyyy'}}</p>
+                    <p>Company: {{user.company}}</p>
+                    <p *ngIf="user.isWorking===true; else ElseTemplate">Income: {{user.income|doubleMe|currency:'EUR':true}}</p>
+                </div>
+                <ng-template #ElseTemplate>
+                    <p class="alert-danger">{{user.firstname}} is not working now :(</p>
+                </ng-template>
+
+            </div>
+        </li>
+    </ul>
+</div>
