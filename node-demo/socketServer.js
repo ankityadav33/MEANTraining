@@ -16,8 +16,11 @@ io.on('connection', function(client){
 	});
 	client.on("MsgToServer", function(chattername, msg){
 		console.log(chattername +" : "+msg);
-		client.emit("MsgToClient",'Me', msg);
+		client.emit("MsgToClient",'Me ', msg);
 		client.broadcast.emit("MsgToClient",chattername, msg);
+	})
+	client.on("disconnect", function(){
+		//insert the data in database
 	})
 });
 

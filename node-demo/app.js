@@ -119,10 +119,19 @@ app.get('/signup', function(req, res){
 	}
 }); */
 
+app.get("/profile", function(req, res){
+	res.send("Authenticated!!!");
+})
+
 app.post("/signup", function(req, res){
 	var users = mongoUtil.getUsers();
 	users.find().toArray(function(err, docs){
-		res.json(docs);
+		docs.array.forEach(element => {
+			if(element.username===req.body.username && element.password===req.body.password){
+				res.redirect("/profile");
+			}
+		});
+		//res.json(docs);
 	})
 	if(req.body){
 		console.log(req.body);

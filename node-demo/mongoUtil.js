@@ -3,7 +3,7 @@ var client = mongodb.MongoClient;
 var _db ;
 module.exports.connect = function(){
 	console.log("connecting...");
-	client.connect("mongodb://localhost:27017", 
+	client.connect("mongodb: 	//localhost:27017", 
 			function(err, database){
 		if(err){
 			process.exit(1);
@@ -30,5 +30,12 @@ module.exports.removeUser = function(key){
 	_db.collection('users').remove(key, function(err, result){
 		if(err){console.log(err)}
 			console.log("User Deleted");
+	})
+}
+
+module.exports.updateUser = function(data){
+	_db.collection('users').updateOne(data, {$set:{"password":123456}}, function(err, result){
+		if(err){console.log(err)}
+			console.log("Updated the document with the field");
 	})
 }
